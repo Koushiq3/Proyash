@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="main.css">
+    <style>
+        a:link {
+            color: white;
+            background-color: transparent;
+            text-decoration: none;
+        }
+
+        a:visited {
+            color: white;
+            background-color: transparent;
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: #F39C12;
+            background-color: transparent;
+            text-decoration: none;
+        }
+		.button3 {
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 10px 2px;
+  cursor: pointer;
+}
+
+.button3:hover {
+  color:#F39C12;
+  background-color: White;
+  text-decoration: none;
+}
+.button3 {background-color: #F39C12;}
+
+
+    body { background-image: url('BGIMG.png'); background-repeat: no-repeat; background-attachment: fixed; background-size: 100% 100%; }
+    </style>
+    <title>Project Proyash</title>
+</head>
+<body style="background-color:#ADD8E6;">
+
+    <a href="Proyash.html"><img align="left" src="Logo6.png" alt="Logo Proyash" style="width:150px;height:50px;"></a>
+    <br></br>
+    <h4 style="color:white; text-align:center; font-family:Raleway Light">
+    <a href="Proyash.html">Home </a>&nbsp; &nbsp; &nbsp; 
+    <a href="LFD.html"> Look For a Doctor </a> &nbsp; &nbsp;&nbsp; 
+    <a href="HaP.html">Help a Patient</a> &nbsp; &nbsp; &nbsp;
+    <a href="about.html"> About Us</a></h4>
+    <br></br>
+    <br></br>
+    <br></br>
+    <h1 style="text-align:center;font-size:300%;"> <t style="color:White;font-family:Raleway;"> Are you looking for a Doctor?</t> </t></h1></p>
+	
+	
+	
+	
+    <h4 style="color:#283747; text-align:center; font-family:Raleway Light"><a href="Patientsu.html"><button2 class="button button2" style="float:center;">Sign Up</button></a><button2 class="button button2" onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button></a></h4>
+
+<div id="id01" class="modal">
+  
+    <form class="modal-content animate" action="PatientValidation.php" method="post">
+        <div class="imgcontainer">
+            <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+            <img src="logo4.png" alt="Avatar" class="avatar">
+        </div>
+
+        <div class="container">
+            <label for="uname"><t style="font-family:Raleway;color:white">Email</t></label>
+            <input type="text" style="font-family: Raleway" placeholder="Enter Email" name="uname" required>
+
+            <label for="psw"><t style="font-family:Raleway;color:white">Password</t></label>
+            <input type="password" style="font-family: Raleway" placeholder="Enter Password" name="psw" required>
+
+            <button class="button button1" type="submit"><t style="font-family:Raleway;"><b>Login</b></t></button>
+
+        </div>
+
+        <div class="container" style="background-color:#f1f1f1">
+            <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn"><a href="#"><t style="font-family:Raleway;color:black">Cancel</t></a></button>
+            <span class="psw"><a href="#"><t style="font-family:Raleway; color:#F39C12"><b>Forgot password?</b></t></a></span>
+        </div>
+    </form>
+</div>
+
+<script>
+
+var modal = document.getElementById('id01');
+
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+</script>
+ 
+ 
+ 
+ 
+ </p>
+
+
+    <br></br>
+    <p style="text-align:center;"><img src="Picture2.png" alt="centered image" style="width:1088px;height:400px;"></p>
+
+
+
+
+</body>
+</html>

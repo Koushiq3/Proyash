@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="main.css">
+<style>
+a:link {
+  color:#283747;
+  background-color: transparent;
+  text-decoration: none;
+}
+ a:visited {
+  color:#283747;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+a:hover {
+  color:#F39C12 ;
+  background-color: transparent;
+  text-decoration: none;
+}
+body {
+            background-image: url('LFD.jpg');
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: 100% 100%;
+        }
+ </style>
+<title>Project Proyash</title>
+</head>
+<body>
+    <?php
+    $eid=$_GET['eid'];
+    $conn= mysqli_connect('localhost', 'root', '', 'proyash');
+    $sql="Select FIRST_NAME From patient where ID='$eid'";
+    $get_data = mysqli_query($conn, $sql);
+    $row = mysqli_fetch_assoc($get_data);
+    $first_name = $row['FIRST_NAME'];
+    //echo $first_name;
+
+    ?>
+    <a href="Proyash.html"><img align="left" src="Logo6.png" alt="Logo Proyash" style="width:150px;height:50px;"></a>
+
+    <br></br>
+    <h4 style=" text-align:center; font-family:Raleway Light;"><a href="LFDHomeL.html?eid=<?= $eid; ?>">Home</a>&nbsp; &nbsp; &nbsp; <a href="LfaDr.html?eid=<?= $eid; ?>">Look for a doctor</a>&nbsp; &nbsp; &nbsp;<a href="AppointmentP.html?eid=<?= $eid; ?>">Appointments</a> &nbsp; &nbsp; &nbsp;<a href="AcInfoP.html?eid=<?= $eid; ?>">Account Info</a>&nbsp; &nbsp; &nbsp;  <a href="Proyash.html">Log Out</a></h4>
+    <br></br>
+    <br></br>
+    <h1 style="text-align:center;font-size:300%;"> <t style="color:#283747;font-family:Lato Black;highlight:white"> Hi <?= $first_name ?>!</t> </h1>
+    <p style="color:#283747;font-family:Raleway Light; text-align:center;"><b><i>To find a doctor near your location, check<t style="color:#F39C12;"> Doctor List</t><br></br> To take an appointment for your doctor, use <t style="color:#F39C12;">Take Appointments</t><br></br>To access your account information, use  <t style="color:#F39C12;">Account Info</t> </i></b></p>
+
+    <h4 style="color:#283747; text-align:center; font-family:Raleway Light"><a href="Proyash.html"><button2 class="button button2" style="float: center;">Appointments</button></a></h4>
+    <br>
+    <p style="text-align:center;"><img src="Picture2.png" alt="centered image" style="width:1088px;height:400px;"></p>
+
+
+
+
+</body>
+</html>

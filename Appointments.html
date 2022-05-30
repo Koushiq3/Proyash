@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="main.css">
+    <style>
+        a:link {
+            color: #283747;
+            background-color: transparent;
+            text-decoration: none;
+        }
+
+        a:visited {
+            color: #283747;
+            background-color: transparent;
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: #F39C12;
+            background-color: transparent;
+            text-decoration: none;
+        }
+
+        body {
+            background-image: url('BGIMG5.jpg');
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: 100% 100%;
+        }
+
+        table, th, td {
+            border: 3px solid white;
+            border-collapse: collapse;
+            padding: 30px 30px 30px 30px;
+            font-family: Raleway;
+        }
+    </style>
+    <title>Project Proyash</title>
+</head>
+<body>
+    <?php
+    $eid=$_GET['eid'];
+    $conn= mysqli_connect('localhost', 'root', '', 'proyash');?>
+    <a href="Proyash.html"><img align="left" src="Logo6.png" alt="Logo Proyash" style="width:150px;height:50px;"></a>
+
+    <br></br>
+    <h4 style="color:black; text-align:center; font-family:Raleway Light">
+        <a href="DocHome.html?eid=<?= $eid; ?>">Home</a>&nbsp; &nbsp; &nbsp;
+        <a href="Appointments.html?eid=<?= $eid; ?>">Patient List</a>&nbsp; &nbsp;&nbsp;
+        <a href="Book.html?eid=<?= $eid; ?>">Appointments</a>&nbsp; &nbsp; &nbsp;
+        <a href="DocAcc.html?eid=<?= $eid; ?>">Account Info</a>&nbsp; &nbsp; &nbsp;
+        <a href="logout.php"><u>Log Out</u></a>
+    </h4>
+    <br></br>
+    <br></br>
+    <h1 style="text-align:center;font-size:300%;"> <t style="color:#283747;font-family:Lato Black;">Your<t style="color:#F39C12;"> Patients!</t></h1>
+    <br></br>
+    <table class="center">
+        <tr>
+            <th><h2 style="color:crimson">Appointment ID</h2></th>
+            <th><h2 style="color:crimson">First Name</h2></th>
+            <th><h2 style="color:crimson">Last Name</h2></th>
+            <th><h2 style="color:black">Age</h2></th>
+            <th><h2 style="color:black">Gender</h2></th>
+            <th><h2 style="color:black">Tests Given</h2></th>
+            <th><h2 style="color:black">Blood Group</h2></th>
+        </tr>
+        <?php
+        $eid=$_GET['eid'];
+        $conn= mysqli_connect('localhost', 'root', '', 'proyash');
+        $sql = "Select a.ID, p.FIRST_NAME, p.LAST_NAME, p.AGE, p.BLOOD_GROUP, p.GENDER, a.TESTS From patient p, appointment a Where p.ID=a.PATIENT_ID AND a.DOC_ID='$eid'";
+        $get_data = mysqli_query($conn, $sql);
+        if(mysqli_num_rows($get_data)>0)
+        {
+        while($row = mysqli_fetch_assoc($get_data))
+        {
+        echo '
+        <tr>
+            <td><h3>'.$row['ID'].'</h3></td>
+            <td><h3>'.$row['FIRST_NAME'].'</h3></td>
+            <td><h3>'.$row['LAST_NAME'].'</h3></td>
+            <td><h3>'.$row['AGE'].'</h3></td>
+            <td><h3>'.$row['GENDER'].'</h3></td>
+            <td><h3>'.$row['TESTS'].'</h3></td>
+            <td><h3>'.$row['BLOOD_GROUP'].'</h3></td>';
+
+            echo '
+        </tr>';
+        }
+        }
+
+        ?>
+
+    </table>
+   <!-- <h4 style="color:#283747; text-align:center; font-family:Raleway Light"><a href="Appointments.html?eid=<?= $eid; ?>"><button2 class="button button2" onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Add Prescription</button></a></h4>
+    <div id="id01" class="modal">
+
+        <form class="modal-content animate" action="prescriptioninp.php" method="post">
+
+            <div class="container">
+                <label for="id"><t style="font-family:Raleway;color:white">Enter the Appointment ID</t></label>
+                <input type="text" id="appid"style="font-family: Raleway" placeholder="Appointment ID" name="appid" required>
+
+                <label for="prescription"><t style="font-family:Raleway;color:white">Enter the Prescription</t></label>
+                <input type="text" id="prescription" style="font-family: Raleway" placeholder="Prescription" name="prescription" required>
+
+                <button class="button button1" type="submit"><t style="font-family:Raleway;"><b>Submit</b></t></button>
+
+            </div>
+
+            <div class="container" style="background-color:#f1f1f1">
+                <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn"><a href="#"><t style="font-family:Raleway;color:black">Cancel</t></a></button>
+            </div>
+        </form>
+        -->
+</body>
+</html> 

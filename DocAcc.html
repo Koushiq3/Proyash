@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="main.css">
+    <style>
+        a:link {
+            color: #283747;
+            background-color: transparent;
+            text-decoration: none;
+        }
+
+        a:visited {
+            color: #283747;
+            background-color: transparent;
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: #F39C12;
+            background-color: transparent;
+            text-decoration: none;
+        }
+
+        body {
+            background-image: url('BGIMG5.jpg');
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: 100% 100%;
+        }
+    </style>
+    <title>Sign Up Page</title>
+
+</head>
+<body>
+    <?php
+    $eid=$_GET['eid'];
+    $conn= mysqli_connect('localhost', 'root', '', 'proyash');
+    $sql="SELECT EMAIL, FIRST_NAME, LAST_NAME, NID, SPECIALISATION, CHAMBER_ADDRESS, VISITING_FEE, AREA_LOCATION, BANK_AC, BANK_BRANCH, BANK_NAME, BKASH, Phone FROM doctor WHERE ID='$eid'";
+    $get_data = mysqli_query($conn, $sql);
+    $row = mysqli_fetch_assoc($get_data);
+    $email = $row['EMAIL'];
+    $fname = $row['FIRST_NAME'];
+    $lname = $row['LAST_NAME'];
+    $nid = $row['NID'];
+    $special =$row['SPECIALISATION'];
+    $adr = $row['CHAMBER_ADDRESS'];
+    $fee = $row['VISITING_FEE'];
+    $location= $row['AREA_LOCATION'];
+    $acc = $row['BANK_AC'];
+    $branch = $row['BANK_BRANCH'];
+    $bname=$row['BANK_NAME'];
+    $bkash=$row['BKASH'];
+    $phone=$row['Phone'];
+
+
+
+    ?>
+    <a href="Proyash.html"><img align="left" src="Logo6.png" width="888" height="301" alt="Logo Proyash" style="width:150px;height:50px;"></a>
+    <br></br>
+    <h4 style=" text-align:center; font-family:Raleway Light">
+        <a href="DocHome.html?eid=<?= $eid; ?>">Home</a>&nbsp; &nbsp; &nbsp;
+        <a href="Appointments.html?eid=<?= $eid; ?>">Patient List</a>&nbsp; &nbsp;&nbsp;
+        <a href="Book.html?eid=<?= $eid; ?>">Appointments</a>&nbsp; &nbsp; &nbsp;
+        <a href="DocAcc.html?eid=<?= $eid; ?>">Account Info</a>&nbsp; &nbsp; &nbsp;
+        <a href="logout.php"><u>Log Out</u></a>
+    </h4>
+    <br></br>
+    <h1 style="text-align:center;font-size:300%;"><t style="color:#283747;font-family:Lato Black;highlight:white">Your Account<t style="color:#F39C12;"> Information</t> </h1>
+    <div class="row" style="font-family:Raleway;">
+
+        <div class="col-3">
+            <div class="container">
+
+                <div class="row" style="font-family:Raleway;">
+                    <div class="col-2">
+                        <h3>Basic Information</h3>
+                        <label for="email"><b>Email</b></label>
+                        <label><?= $email ?></label>
+
+                        <label for="fname"><b>First Name</b></label>
+                        <label><?= $fname ?></label>
+                        <label for="lname"><b>Last Name</b></label>
+                        <label><?= $lname ?></label>
+                        <label for="NID"><b>NID</b></label>
+                        <label><?= $nid ?></label>
+                        <label for="Phone"><b>Phone Number</b></label>
+                        <label><?= $phone ?></label>
+                        <label for="adr"><b>Chamber Address</b></label>
+                        <label><?= $adr ?></label>
+                        <label for="adr"><b>Area Location</b></label>
+                        <label><?= $location ?></label>
+                        <label for="specialisation"><b>Specialisation</b></label>
+                        <label><?= $special ?></label>
+
+                    </div>
+
+                    <div class="col-2">
+                        <h3>Payment Info</h3>
+                        <label for="Visiting_Fee"><b>Visiting Fee</b></label>
+                        <label><?= $fee ?></label>
+                        <label for="Acc_Num"><b>Account Number</b></label>
+                        <label><?= $acc ?></label>
+                        <label for="Bank_Name"><b>Bank Name</b></label>
+                        <label><?= $bname ?></label>
+                        <label for="Bank_Branch"><b>Bank Branch</b></label>
+                        <label><?= $branch ?></label>
+                        <label for="bKash"><b>bKash</b></label>
+                        <label><?= $bkash ?></label>
+                    </div>
+
+                </div>
+                <label>
+                    <h2 style="text-align:center;"> If you want to edit your account information please send us an email by clicking on this button below!</h2>
+                </label>
+                <h4 style="color:#283747; text-align:center; font-family:Raleway Light"><a href="mailto:mohammad.hasan10@northsouth.edu"><button2 class="button button2" style="float: center;">Request for edit</button></a></h4>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
